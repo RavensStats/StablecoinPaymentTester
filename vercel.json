@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "public/MetaMaskTestApp.html", "use": "@vercel/static" },
+    { "src": "public/MetaMaskTestScript.js", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
