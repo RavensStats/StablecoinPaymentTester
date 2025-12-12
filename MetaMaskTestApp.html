@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stablecoin Payment Logic Tester</title>
+</head>
+<body>
+<h2>Stablecoin Payment Logic Verification Suite (Testnet) — Full Version</h2>
+
+<button id="connectBtn">Connect MetaMask</button>
+<div id="wallet" style="margin-top:10px; margin-bottom:20px;"></div>
+
+<h3>Single Test Execution</h3>
+
+<label>Mode:</label>
+<select id="mode">
+    <option value="simulate">Simulation Only</option>
+    <option value="live">Live on Testnet (MetaMask)</option>
+</select><br><br>
+
+<label>Input Currency:</label>
+<select id="currencyInput">
+    <option value="USD">USD</option>
+    <option value="USDC">USDC</option>
+</select><br><br>
+
+<label>Amount:</label>
+<input id="amount" type="number" placeholder="Amount" /><br><br>
+
+<label>FX Rate (USD → USDC):</label>
+<input id="fx" type="number" value="1" step="0.0001" /><br><br>
+
+<label>Split Rules (JSON):</label><br>
+<textarea id="splitRules" rows="4" cols="60">
+[
+    {"address": "0xRecipientA...", "percent": 50},
+    {"address": "0xRecipientB...", "percent": 30},
+    {"address": "0xRecipientC...", "percent": 20}
+]
+</textarea>
+<br><br>
+
+<button id="runBtn">Run Verification</button>
+
+<hr>
+
+<h3>Automated Test Scenarios (Monte-Carlo)</h3>
+
+<label>Number of Tests:</label>
+<input id="testCount" type="number" value="50" /><br><br>
+
+<label>Enable Random FX?</label>
+<input type="checkbox" id="randomFX" checked /><br><br>
+
+<label>Enable Random Splits?</label>
+<input type="checkbox" id="randomSplits" checked /><br><br>
+
+<button id="runAutoTestBtn">Run Automated Scenario Tests</button>
+
+<h3>Audit Trail Output</h3>
+<pre id="auditOutput" style="background:#eef;padding:10px;height:300px;overflow:auto;"></pre>
+
+<h3>Output</h3>
+<pre id="output" style="background:#f4f4f4; padding:15px;"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+<script src="MetaMaskTestScript.js"></script>
+</body>
+</html>
